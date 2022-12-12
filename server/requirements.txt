@@ -1,0 +1,5 @@
+Flask
+openai
+waitress
+flask-cors
+python-dotenv

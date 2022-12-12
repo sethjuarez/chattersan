@@ -1,0 +1,45 @@
+# @name first
+POST https://ghrt-app-prod-3pqjhgdpctklbiec.proudbush-c7568808.westus.azurecontainerapps.io/chat HTTP/1.1
+content-type: application/json
+
+{
+  "question": "Explain the basics of quantum chromodynamics."
+}
+
+###
+
+# @name second
+POST http://localhost:5000/chat HTTP/1.1
+content-type: application/json
+
+{
+  "question": "Why is it an interesting field?",
+  "context":
+  [
+    {
+      "question": "{{first.request.body.$.question}}",
+      "answer": "{{first.response.body.$.response}}"
+    }
+  ]
+}
+
+###
+
+# @name third
+POST http://localhost:5000/chat HTTP/1.1
+content-type: application/json
+
+{
+  "question": "How can I learn more?",
+  "context":
+  [
+    {
+      "question": "{{first.request.body.$.question}}",
+      "answer": "{{first.response.body.$.response}}"
+    },
+    {
+      "question": "{{second.request.body.$.question}}",
+      "answer": "{{second.response.body.$.response}}"
+    }
+  ]
+}
