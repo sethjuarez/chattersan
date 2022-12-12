@@ -1,5 +1,5 @@
 # @name first
-POST https://ghrt-app-prod-3pqjhgdpctklbiec.proudbush-c7568808.westus.azurecontainerapps.io/chat HTTP/1.1
+POST http://localhost:5000/chat HTTP/1.1
 content-type: application/json
 
 {
