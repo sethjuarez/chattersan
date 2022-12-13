@@ -20,12 +20,12 @@ class OpenAI:
     def __init__(self):
         self.engine = "text-davinci-002"
         self.temperature = 0.7
-        self.max_tokens = 60
+        self.max_tokens = 1024
         self.top_p = 1
         self.frequency_penalty = 0
         self.presence_penalty = 0
         self.stop = None
-        self.context_window = 3
+        self.context_window = 5
 
         self._opener = "The following is a conversation with an AI assistant. The assistant is insightful, creative, friendly, and a little playful."
         self._context: List[Context] = [
